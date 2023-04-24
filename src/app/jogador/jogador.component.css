@@ -1,0 +1,59 @@
+.title-search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: #000000;
+    color: #fff;
+    margin-top: 0;
+}
+
+.search-player{
+    /* margin: 0 100px 0 100px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+    padding: 10px ;
+    background-image: url(../../assets/Zed-back.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    color: #000000;
+}
+.search-player label{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.search-player input{
+    margin-top: 25px;
+    height: 25px;
+    width: 300px;
+    border:none;
+
+    border-radius: 5px;
+}
+.search-player button{
+    margin-left: 10px;
+    margin-top: 20px;
+    text-align: center;
+    height: 25px;
+    width: 70px;
+    border-radius: 5px;
+    background-color: #A9A9A9;
+
+}
+.search-player button:hover{
+    background-color: #8B0000;
+}
+
+.player-info{
+    margin: 15px;
+}
+
+.maestry-info{
+    margin: 15px;
+}
+

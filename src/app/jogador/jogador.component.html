@@ -1,0 +1,53 @@
+<!-- <div class="row"> 
+ <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="m-2 p-2 bg-blue-200 rounded-sm shadow-sm">
+            <form [formGroup]="searchForm">
+                <input type="text" name=""formControlName="search"  id="">
+            </form>
+        </div>
+    </div>
+</div> -->
+<div class="title-search">
+  <h2>Procure as informações de alguem pelo nome</h2>
+</div>
+
+<form class="search-player">
+    <label for="nome">Player Nickname:</label>
+    <input type="text" [(ngModel)]="playername" name="nome" id="nome">
+    <br>
+    <button type="button" (click)="send()"> Enviar </button>
+</form>
+
+<div *ngIf="dataReceived" class="player-info" >
+      <!-- <span>{{dataReceived.id}}</span> -->
+
+      <br>
+      <span>{{dataReceived.name}}</span>
+      <br>
+      <span>{{dataReceived.summonerLevel}}</span>
+      <br>
+      <span><img [src]="'http://ddragon.leagueoflegends.com/cdn/13.8.1/img/profileicon/'+dataReceived.profileIconId+'.png'" alt=""></span>
+      <br>
+      <img [src]="'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+championNames[0]+'_0.jpg'" >
+      <!-- <span>{{dataReceived.puuid}}</span> -->
+    </div>
+    
+    
+<br>
+<br>
+<br>
+  <div *ngFor="let champion of maestrychampions; let i = index;" class="maestry-info">
+    <!-- <span>{{maestrychampion[0].championId}}</span> -->
+    <br>
+    <img [src]="'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+championNames[i]+'_0.jpg'" alt="" width="200px">
+    <br>
+    <span>Champion Name: {{championNames[i]}}</span>
+    <br>
+    <span>Level: {{champion.championLevel}}</span>
+    <br>
+    <span>Points:{{champion.championPoints}}</span>
+  </div>
+
+  <!-- championNames -->
+  <!-- ; let names of championNames -->
