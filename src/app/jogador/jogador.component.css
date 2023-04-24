@@ -15,32 +15,45 @@
     justify-content: center;
     align-items: center;
     height: 200px;
-    width: 100%;
     padding: 10px ;
-    background-image: url(../../assets/Zed-back.jpg);
+    background-image: url(../../assets/img/Zed-back.jpg);
+    background-color: rgba(0, 0, 0, 0.651);
     background-position: top;
     background-repeat: no-repeat;
     color: #000000;
+    border: solid #000000;
+    border-radius: 10px;
 }
 .search-player label{
+    font-family: inherit;
     font-weight: bold;
     font-size: 30px;
 }
 
 .search-player input{
     margin-top: 25px;
-    height: 25px;
+    height: 40px;
     width: 300px;
-    border:none;
-
+    border: solid 3px black;
+    background: transparent;
     border-radius: 5px;
+    padding: 5px;
 }
+
+.search-player input:active{
+    background-color: transparent;
+    color: #fff;
+}
+.search-player input::content{
+    background-color: transparent;
+}
+
 .search-player button{
     margin-left: 10px;
     margin-top: 20px;
     text-align: center;
-    height: 25px;
-    width: 70px;
+    height: 30px;
+    width: 100px;
     border-radius: 5px;
     background-color: #A9A9A9;
 
@@ -50,10 +63,91 @@
 }
 
 .player-info{
-    margin: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    transform: translate(-50%);
+    width: 1215px;
+    height: 420px;
+    margin: 0;
 }
 
-.maestry-info{
-    margin: 15px;
+.player-info .info{
+    z-index: 1;
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
 }
 
+.player-info .info {
+    bottom: 10px;
+}
+
+.player-info .info .profileicon{
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    border-radius: 50%;
+    height: 230px;
+    border: solid;
+}
+
+.player-info .info2{
+    position: absolute;
+    bottom: 10%;
+    left: 25%;
+    width: 500px;
+    font-size: 40px;
+    color: #000000;
+    font-weight: 900;
+    list-style: none;
+    border: solid 3px black;
+    background-color: #57575775;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.back-player{
+    z-index: 0;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%);
+    position: absolute;
+    clip: rect(0px, 1215px, 400px, 0px);
+    border-radius: 10px;
+}
+
+.maestrys{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    transform: translate(-50%);
+    width: 1215px;
+    height: 200px;
+    margin: 15px;
+    background-color: #a9a9a967;
+    border-radius: 20px;
+}
+
+.maestrys .info-maestry{
+    position: absolute;
+    left: 13%;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    color: white;
+}
+
+.maestrys img{
+    position: absolute;
+    left: 3%;
+    width: 100px;
+    border-radius: 10px;
+}

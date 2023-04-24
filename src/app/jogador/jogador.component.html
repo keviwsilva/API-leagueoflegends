@@ -1,13 +1,3 @@
-<!-- <div class="row"> 
- <div class="col-md-2"></div>
-    <div class="col-md-8">
-        <div class="m-2 p-2 bg-blue-200 rounded-sm shadow-sm">
-            <form [formGroup]="searchForm">
-                <input type="text" name=""formControlName="search"  id="">
-            </form>
-        </div>
-    </div>
-</div> -->
 <div class="title-search">
   <h2>Procure as informações de alguem pelo nome</h2>
 </div>
@@ -20,34 +10,30 @@
 </form>
 
 <div *ngIf="dataReceived" class="player-info" >
-      <!-- <span>{{dataReceived.id}}</span> -->
 
-      <br>
-      <span>{{dataReceived.name}}</span>
-      <br>
-      <span>{{dataReceived.summonerLevel}}</span>
-      <br>
-      <span><img [src]="'http://ddragon.leagueoflegends.com/cdn/13.8.1/img/profileicon/'+dataReceived.profileIconId+'.png'" alt=""></span>
-      <br>
-      <img [src]="'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+championNames[0]+'_0.jpg'" >
-      <!-- <span>{{dataReceived.puuid}}</span> -->
+      <br><ul class="info">
+        <li><span><img [src]="'http://ddragon.leagueoflegends.com/cdn/13.8.1/img/profileicon/'+dataReceived.profileIconId+'.png'" alt="" class="profileicon"></span></li>
+
+        <li> 
+            <ul class="info2">
+               <li><span class="summoner">{{dataReceived.name}}</span></li>
+               <br>
+               <li><span class="level">Nivel: {{dataReceived.summonerLevel}}</span></li>
+            </ul>
+        </li>
+      </ul>
+      <img [src]="'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+championNames[0]+'_0.jpg'" class="back-player">
     </div>
-    
-    
 <br>
 <br>
 <br>
-  <div *ngFor="let champion of maestrychampions; let i = index;" class="maestry-info">
-    <!-- <span>{{maestrychampion[0].championId}}</span> -->
+  <div *ngFor="let champion of maestrychampions; let i = index;" class="maestrys">
     <br>
-    <img [src]="'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+championNames[i]+'_0.jpg'" alt="" width="200px">
-    <br>
-    <span>Champion Name: {{championNames[i]}}</span>
-    <br>
-    <span>Level: {{champion.championLevel}}</span>
-    <br>
-    <span>Points:{{champion.championPoints}}</span>
+    <!-- <img [src]="'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+championNames[i]+'_0.jpg'" alt="" > -->
+    <img [src]="'https://www.mobafire.com/images/avatars/'+championNames[i]+'-classic.png'" alt="" >
+    <ul class="info-maestry">
+      <li><span>Champion Name: {{championNames[i]}}</span></li>
+      <li><span>Level: {{champion.championLevel}}</span></li>
+      <li><span>Points:{{champion.championPoints}}</span></li>
+    </ul>
   </div>
-
-  <!-- championNames -->
-  <!-- ; let names of championNames -->

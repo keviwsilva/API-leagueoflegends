@@ -43,7 +43,7 @@ export class JogadorComponent implements OnInit{
          const championIds = [];
 
         // this make a loop where the 3 chmapions with more points from this user and show then in user page
-        for (let i = 0; i <= 2; i++) {
+        for (let i = 0; i <= 9; i++) {
           const champions = result[i];
           const championId = result[i].championId;
           championIds.push(championId);

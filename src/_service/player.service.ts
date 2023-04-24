@@ -16,7 +16,7 @@ export class PlayerService {
 
   //API to find player
   sendForm(playername: string) {
-    const apikey = 'RGAPI-06594f39-f84b-4037-9bd2-0c4a3db21265';
+    const apikey = 'RGAPI-aafba85e-4a1f-4533-9d6d-833fe58aaefe';
     const url = 'https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + encodeURIComponent(playername) + '?api_key=' + apikey;
 
     return this.http.get<any>(url);
@@ -24,7 +24,7 @@ export class PlayerService {
 
   //API to find the maestry champions from player
   getPlayer(playerid: string){
-    const apikey = 'RGAPI-06594f39-f84b-4037-9bd2-0c4a3db21265';
+    const apikey = 'RGAPI-aafba85e-4a1f-4533-9d6d-833fe58aaefe';
     const urlchampion = 'https://br1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/' + playerid + '?api_key=' + apikey;
 
     return this.http.get<any>(urlchampion);
@@ -94,7 +94,7 @@ export class PlayerService {
     case 254: return "Vi"; break;
     case 10: return "Kayle"; break;
     case 39: return "Irelia"; break;
-    case 64: return "Lee Sin"; break;
+    case 64: return "Lee-Sin"; break;
     case 420: return "Illaoi"; break;
     case 60: return "Elise"; break;
     case 106: return "Volibear"; break;
@@ -106,7 +106,7 @@ export class PlayerService {
     case 36: return "DrMundo"; break;
     case 427: return "Ivern"; break;
     case 131: return "Diana"; break;
-    case 223: return "Tahm Kench"; break;
+    case 223: return "Tahm-Kench"; break;
     case 63: return "Brand"; break;
     case 113: return "Sejuani"; break;
     case 8: return "Vladimir"; break;
@@ -148,14 +148,14 @@ export class PlayerService {
     case 83: return "Yorick"; break;
     case 6: return "Urgot"; break;
     case 203: return "Kindred"; break;
-    case 21: return "Miss Fortune"; break;
+    case 21: return "Miss-Fortune"; break;
     case 62: return "Wukong"; break;
     case 53: return "Blitzcrank"; break;
     case 98: return "Shen"; break;
     case 201: return "Braum"; break;
     case 5: return "XinZhao"; break;
     case 29: return "Twitch"; break;
-    case 11: return "MasterYi"; break;
+    case 11: return "Master-yi"; break;
     case 44: return "Taric"; break;
     case 32: return "Amumu"; break;
     case 41: return "Gangplank"; break;
@@ -164,11 +164,11 @@ export class PlayerService {
     case 161: return "Vel'Koz"; break;
     case 143: return "Zyra"; break;
     case 267: return "Nami"; break;
-    case 59: return "JarvanIV"; break;
+    case 59: return "Jarvan-IV"; break;
     case 81: return "Ezreal"; break;
     case 902: return "Milio";break;
     case 221: return "Zeri";break;
-    case 888: return "Renata";break;
+    case 888: return "Renata-glasc";break;
     case 166: return "Akshan";break;
     case 141: return "Kayn";break;
     case 555: return "Pyke";break;
@@ -186,7 +186,16 @@ export class PlayerService {
     case 526:return"Rell";break;
     case 234:return "Viego";break;
     case 887:return "Gwen";break;
-
+    case 897:return "KSante";break;
+    case 895:return "Nilah";break;
+    case 711:return "Vex";break;
+    case 200:return "Belveth";break;
+    case 875:return "Sett";break;
+    case 777:return "Yone";break;
+    case 350:return "Yuumi";break;
+    case 360:return "Samira";break;
+    case 516:return "Ornn";break;
+    case 246:return"Qiyana";break;
     default: return 'erro';break;
     }
   }
