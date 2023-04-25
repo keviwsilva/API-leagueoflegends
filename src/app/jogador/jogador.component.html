@@ -1,5 +1,5 @@
 <div class="title-search">
-  <h2>Procure as informações de alguem pelo nome</h2>
+  <h2>SHADOW SEARCH</h2>
 </div>
 
 <form class="search-player">
@@ -22,7 +22,10 @@
             </ul>
         </li>
       </ul>
-      <img [src]="'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+championNames[0]+'_0.jpg'" class="back-player">
+      <!-- <div *ngIf="champsCover"> -->
+      <!-- <img [src]="'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+championNames[0]+'_0.jpg'" class="back-player"> -->
+      <img [src]="champsCover.coverPicture" class="back-player">
+      <!-- </div> -->
     </div>
 <br>
 <br>
@@ -32,8 +35,10 @@
     <!-- <img [src]="'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+championNames[i]+'_0.jpg'" alt="" > -->
     <img [src]="'https://www.mobafire.com/images/avatars/'+championNames[i]+'-classic.png'" alt="" >
     <ul class="info-maestry">
-      <li><span>Champion Name: {{championNames[i]}}</span></li>
-      <li><span>Level: {{champion.championLevel}}</span></li>
-      <li><span>Points:{{champion.championPoints}}</span></li>
+      <li><span>Nome do Campeão: {{championNames[i]}}</span></li>
+      <li><span>Nivél: {{champion.championLevel}}</span></li>
+      <li><span>Pontos de maestria:{{champion.championPoints}}</span></li>
+      <li><span>Função: {{roleChamps[i].role}}</span></li>
+
     </ul>
   </div>

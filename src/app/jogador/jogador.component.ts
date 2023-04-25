@@ -3,6 +3,7 @@ import { PlayerService } from 'src/_service/player.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import  axios  from 'axios';
+import { Champions } from '../data/champions';
 
 
 @Component({
@@ -12,24 +13,26 @@ import  axios  from 'axios';
 })
 export class JogadorComponent implements OnInit{
 
-  // searchForm:FormGroup = new FormGroup({
-  //   search:new FormControl('')
-  // })
-  // private playerservice: PlayerService
   playername!: string;
   championNames!: string[] ;
-  // public userList:Array<any> = [];
+  championsData: any = Champions;
+
+
   constructor(private playerservice: PlayerService){
    
   }
-
-   
+  
+  
   ngOnInit(): void { }
 
   dataReceived: any;
   maestrychampions: any;
   championName: any;
   championResults: any;
+  champ:any;
+  champsCover:any;
+  roleChamps:any;
+  championsRoles:any;
 
     async send() {
       try {
@@ -41,6 +44,7 @@ export class JogadorComponent implements OnInit{
         const result = await this.playerservice.getPlayer(playerId).toPromise();
          const maestrychampion = [];
          const championIds = [];
+        
 
         // this make a loop where the 3 chmapions with more points from this user and show then in user page
         for (let i = 0; i <= 9; i++) {
@@ -54,14 +58,45 @@ export class JogadorComponent implements OnInit{
           this.playerservice.getChampionName(championId)));
         this.championNames = championNameResults;
 
+        // console.log(championNameResults)
+
+        const matchingChampion = this.championsData.find((champions: { name: string; }) => champions.name == championNameResults[0]);
+        // console.log(matchingChampion);
+
+
+        const roleChamp = [];
+        for (let i = 0; i < championNameResults.length; i++) {
+          const championName = championNameResults[i];
+          const matchingChampion = this.championsData.find((champions: { name: string; }) => champions.name === championName);
+          roleChamp.push(matchingChampion);
+        }
+
+        this.roleChamps = roleChamp;
+
+
+        //other way to finde the roles for each champion response
+
+      //   const roles = []
+      // for (let i = 0; i < this.roleChamps.length; i++) {
+      //   roles.push(this.roleChamps[i].role);
+      // }
+
+      // this.championsRoles = roles;
+      // console.log(this.championsRoles)
+
+          this.champsCover = matchingChampion;
+          // console.log(this.champsCover.coverPicture)
+
         //infomation about the champions
         this.maestrychampions = maestrychampion;
-        console.log(championIds)
+        // console.log(championIds)
         
       } catch (error) {
         console.log(error);
       }
     }
+
+    
     
     
   //   for (let i = 0; i <= 2; i++) {

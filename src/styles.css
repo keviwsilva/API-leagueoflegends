@@ -10,7 +10,14 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     height: 100vh;
+    font-family: frizzquadratica;
 }
+
+@font-face {
+  font-family: frizzquadratica;
+  src: url(../src/assets/fonts/FrizQuadrata.ttf);
+}
+
 
 ::-webkit-scrollbar{ 
     width: 15px;
