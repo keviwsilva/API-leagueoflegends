@@ -6,28 +6,29 @@
     <label for="nome">Player Nickname:</label>
     <input type="text" [(ngModel)]="playername" name="nome" id="nome">
     <br>
-    <button type="button" (click)="send()"> Enviar </button>
+    <button type="button" (click)="send()" > Enviar </button>
 </form>
 
 <div *ngIf="dataReceived" class="player-info" >
+  
+  <br><ul class="info">
+    <li><span><img [src]="'http://ddragon.leagueoflegends.com/cdn/13.8.1/img/profileicon/'+dataReceived.profileIconId+'.png'" alt="" class="profileicon"></span></li>
 
-      <br><ul class="info">
-        <li><span><img [src]="'http://ddragon.leagueoflegends.com/cdn/13.8.1/img/profileicon/'+dataReceived.profileIconId+'.png'" alt="" class="profileicon"></span></li>
-
-        <li> 
-            <ul class="info2">
-               <li><span class="summoner">{{dataReceived.name}}</span></li>
+    <li> 
+      <ul class="info2">
+        <li><span class="summoner">{{dataReceived.name}}</span></li>
                <br>
                <li><span class="level">Nivel: {{dataReceived.summonerLevel}}</span></li>
-            </ul>
-        </li>
+              </ul>
+              
+            </li>
       </ul>
       <!-- <div *ngIf="champsCover"> -->
-      <!-- <img [src]="'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+championNames[0]+'_0.jpg'" class="back-player"> -->
-      <img [src]="champsCover.coverPicture" class="back-player">
-      <!-- </div> -->
+        <!-- <img [src]="'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+championNames[0]+'_0.jpg'" class="back-player"> -->
+        <img [src]="champsCover.coverPicture" class="back-player">
+        <!-- </div> -->
     </div>
-<br>
+    <br>
 <br>
 <br>
   <div *ngFor="let champion of maestrychampions; let i = index;" class="maestrys">
@@ -39,6 +40,9 @@
       <li><span>Nivél: {{champion.championLevel}}</span></li>
       <li><span>Pontos de maestria:{{champion.championPoints}}</span></li>
       <li><span>Função: {{roleChamps[i].role}}</span></li>
-
+      
     </ul>
+  </div>
+  <div *ngIf="dataReceived" >
+    <app-matches [dataReceived]="dataReceived"></app-matches>
   </div>

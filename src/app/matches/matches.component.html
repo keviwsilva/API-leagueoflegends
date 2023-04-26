@@ -1,0 +1,8 @@
+<h2>Partidas recentes de {{ playerName }}</h2>
+<div *ngFor="let partidas of matchesPlayer; let i = index">
+    <ul>
+        <li>
+            <h3>partida numeoro {{i}} {{partidas}} </h3>
+        </li>
+    </ul>
+</div>

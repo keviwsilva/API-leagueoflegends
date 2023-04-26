@@ -7,12 +7,14 @@ import { JogadorComponent } from './jogador/jogador.component';
 import { PlayerService } from 'src/_service/player.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { MatchesComponent } from './matches/matches.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    JogadorComponent
+    JogadorComponent,
+    MatchesComponent,
   ],
   imports: [
     BrowserModule,
