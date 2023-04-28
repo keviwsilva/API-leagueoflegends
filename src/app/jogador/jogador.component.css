@@ -150,3 +150,16 @@
     width: 100px;
     border-radius: 10px;
 }
+
+.matchs{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    transform: translate(-50%);
+    width: 1215px;
+    margin: 15px;
+    border-radius: 20px;
+}

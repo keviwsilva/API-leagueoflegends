@@ -1,8 +1,35 @@
-<h2>Partidas recentes de {{ playerName }}</h2>
+<!-- <h2>Partidas recentes de {{ playerName }}</h2>
 <div *ngFor="let partidas of matchesPlayer; let i = index">
     <ul>
         <li>
             <h3>partida numeoro {{i}} {{partidas}} </h3>
         </li>
     </ul>
+</div> -->
+
+
+<div *ngIf="matchesPlayer && matchesPlayer.length" class="matches">
+  <h2>Partidas recentes de {{ playerName }}</h2>
+  <div *ngFor="let partidas of matchesPlayer; let i = index">
+    <ul>
+      <li>
+        <h2>partida número {{i}} {{partidas}}</h2>
+        <div *ngIf="matchinfo && matchinfo.length > i">
+          <h2>{{matchMode[i]}}</h2>
+          <div *ngFor="let match of matchinfo[i];let j =index;" class="participants">
+            <!-- <h3>Match Mode: {{matchMode.gameMode}}</h3> -->
+            <h3>Name:{{match.summonerName}}</h3>
+            <h3>Champion: {{match.championName}}</h3>
+            <img [src]="'https://www.mobafire.com/images/avatars/'+match.championName+'-classic.png'" alt="">
+            <h3>kills: {{match.kills}}</h3>
+            <h3>deaths: {{match.deaths}}</h3>
+            <h3>assists: {{match.assists}}</h3>
+            <h3>CS: {{totalCs[i][j]}}</h3>
+            <h3>Gold per minute:{{match.challenges.goldPerMinute.toString() | number:'1.0-2'}}</h3>
+            
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
