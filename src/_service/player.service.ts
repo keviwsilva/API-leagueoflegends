@@ -15,7 +15,7 @@ export class PlayerService {
 
   //API to find player
   sendForm(playername: string) {
-    const apikey = 'RGAPI-02008639-8f87-430f-8455-27a570e4fdf8';
+    const apikey = 'RGAPI-bb9c93f8-d3eb-48a8-8f27-b64faef3e36f';
     const url = 'https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + encodeURIComponent(playername) + '?api_key=' + apikey;
 
     return this.http.get<any>(url);
@@ -23,21 +23,21 @@ export class PlayerService {
   
   //API to find the maestry champions from player
   getPlayer(playerid: string) {
-    const apikey = 'RGAPI-02008639-8f87-430f-8455-27a570e4fdf8';
+    const apikey = 'RGAPI-bb9c93f8-d3eb-48a8-8f27-b64faef3e36f';
     const urlchampion = 'https://br1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/' + playerid + '?api_key=' + apikey;
     
     return this.http.get<any>(urlchampion);
   }
 
   getPlayerMatches(playerPuuid:string){
-    const apikey = 'RGAPI-02008639-8f87-430f-8455-27a570e4fdf8';
+    const apikey = 'RGAPI-bb9c93f8-d3eb-48a8-8f27-b64faef3e36f';
 
     const urlmatchs = 'https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/'+playerPuuid+'/ids?start=0&count=20&api_key='+apikey;
     return this.http.get<any>(urlmatchs);
   }
 
   getInfoMatch(matchId: string){
-    const apikey = 'RGAPI-02008639-8f87-430f-8455-27a570e4fdf8';
+    const apikey = 'RGAPI-bb9c93f8-d3eb-48a8-8f27-b64faef3e36f';
 
     const urlmatchid = 'https://americas.api.riotgames.com/lol/match/v5/matches/'+matchId+'?api_key='+apikey;
     return this.http.get<any>(urlmatchid);
