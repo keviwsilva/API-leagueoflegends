@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 })
 
 
-// const apikey = 'RGAPI-02008639-8f87-430f-8455-27a570e4fdf8';
 
 export class PlayerService {
   constructor(private http: HttpClient) { }

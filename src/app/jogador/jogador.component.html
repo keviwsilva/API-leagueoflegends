@@ -26,17 +26,13 @@
               
             </li>
       </ul>
-      <!-- <div *ngIf="champsCover"> -->
-        <!-- <img [src]="'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+championNames[0]+'_0.jpg'" class="back-player"> -->
         <img [src]="champsCover.coverPicture" class="back-player">
-        <!-- </div> -->
     </div>
     <br>
 <br>
 <br>
   <div *ngFor="let champion of maestrychampions; let i = index;" class="maestrys">
     <br>
-    <!-- <img [src]="'https://ddragon.leagueoflegends.com/cdn/img/champion/splash/'+championNames[i]+'_0.jpg'" alt="" > -->
     <img [src]="'https://www.mobafire.com/images/avatars/'+championNames[i]+'-classic.png'" alt="" >
     <ul class="info-maestry">
       <li><span>Nome do Campeão: {{championNames[i]}}</span></li>

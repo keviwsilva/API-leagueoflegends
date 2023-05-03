@@ -24,7 +24,6 @@ export class MatchesComponent implements OnChanges{
   championNames?: string[];
   picChamp: any;
   roleChamps?: any[];
-  // picChamp?: string;
 
   playerNamesearch(playername: string) {
     this.jogadorComponent.onPlayerNameClicked(playername)
@@ -52,7 +51,6 @@ export class MatchesComponent implements OnChanges{
             matchs.push(matches);
           }
           this.matchesPlayer = matchs;
-          // console.log(this.matchesPlayer);
           const matchId = this.matchesPlayer;
           
           const matchIds = [];
@@ -87,61 +85,30 @@ export class MatchesComponent implements OnChanges{
           }
           this.matchinfo = matchIds
           this.championsIds =champId;
-          // console.log(this.championsIds)
-          // console.log(this.championsIds)
 
           const nameResult = [];
-          // for(let i = 0;i<=19;i++){
             
             for (let i = 0; i <= 19; i++) {
               const championNameResults = this.championsIds[i]
               const info = [];
              for (let i = 0; i <= 9; i++) {
           const result = championNameResults[i].championId
-          // .map((championId: number) =>
-          //   this.playerservice.getChampionName(championId));
           const championName = this.playerservice.getChampionName(result);
           info.push(championName)
              }
              
              
             nameResult.push(info)
-          // }
+         
           }
           // console.log(nameResult)
           this.picChamp = nameResult;
 
-          // const championName = this.playerservice.getChampionName(nameResult[0][0]);
-          // this.picChamp = championName
-          // this.playerservice.getChampionName(nameResult);
-            
-            
-            // const matchingChampion = this.championsData.find((champions: { name: string; }) => champions.name == championNameResults[0]);
-            // console.log(matchingChampion);
-            
-            
-          //   const roleChamp = [];
-          //   for (let i = 0; i < championNameResults.length; i++) {
-          //     const championName = championNameResults[i];
-          //     const matchingChampion = this.championsData.find((champions: { name: string; }) => champions.name === championName);
-          //   roleChamp.push(matchingChampion);
-          // }
-          // this.roleChamps = roleChamp;
-          // console.log(this.roleChamps)
-          this.matchMode = matchMode
-          // console.log(matchIds)
-          // console.log(totalCschamp)
-          
-          
-          // for(let i=0; i<=9; i++){
-        //   const minionsKiled = matchIds[i].totalMinionsKilled;
-        //   const neutralminions = matchIds[i].neutralMinionsKilled;
-        //   let totalMinions = minionsKiled + neutralminions;
         
-        //   totalMinionsKilled.push(minionsKiled)
-        // }
+          this.matchMode = matchMode
+        
+    
         this.totalCs = minions
-        // console.log(minions)
         this.loading = false;
       }
       

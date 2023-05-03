@@ -7,22 +7,15 @@
   <div *ngFor="let partidas of matchesPlayer; let i = index" class="matches-info">
     <ul>
       <li>
-        <!-- <h2>partida número {{i}} {{partidas}}</h2> -->
         <div *ngIf="matchinfo && matchinfo.length > i">
           <h2 class="matchMode">{{matchMode[i]}}</h2>
           <div *ngFor="let match of matchinfo[i];let j =index" class="participants">
-            <!-- <h3>Match Mode: {{matchMode.gameMode}}</h3> -->
             <h3 class="summonerName" (click)="playerNamesearch(match.summonerName)">Name:{{match.summonerName}}</h3>
-            <!-- <img [src]="'https://www.mobafire.com/images/avatars/'+match.championName+'-classic.png'" alt="" class="championimg"> -->
             <img [src]="'https://www.mobafire.com/images/avatars/'+picChamp[i][j]+'-classic.png'" alt="" >
             <h3 class="championName">Champion: {{match.championName}}</h3>
             <h3 class="kda">KDA: {{match.kills}}/{{match.deaths}}/{{match.assists}}</h3>
-            <!-- <h3 class="kills">kills: {{match.kills}}</h3>
-            <h3 class="deaths">deaths: {{match.deaths}}</h3>
-            <h3 class="assists">assists: {{match.assists}}</h3> -->
             <h3 class="cs">CS: {{totalCs[i][j]}}</h3>
             <h3 class="gold">Gold per minute:{{match.challenges.goldPerMinute.toString() | number:'1.0-2'}}</h3>
-            <h3></h3>
           </div>
         </div>
       </li>

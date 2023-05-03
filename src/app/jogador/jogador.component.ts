@@ -110,17 +110,15 @@ export class JogadorComponent implements OnInit{
           championIds.push(championId);
           maestrychampion.push(champions);
         }
-        // console.log(maestrychampion)
         //champions ids convert to their names
         const championNameResults = await Promise.all(championIds.map(championId =>
           this.playerservice.getChampionName(championId)));
           this.championNames = championNameResults;
 
-          // console.log(championNameResults);
           
           
           const matchingChampion = this.championsData.find((champions: { name: string; }) => champions.name == championNameResults[0]);
-          // console.log(matchingChampion);
+       
           
           
           const roleChamp = [];
@@ -133,11 +131,9 @@ export class JogadorComponent implements OnInit{
         this.roleChamps = roleChamp;
         
         this.champsCover = matchingChampion;
-        //  console.log(this.champsCover.coverPicture)
         
         //infomation about the champions
         this.maestrychampions = maestrychampion;
-        // console.log(championIds)
         this.loading = false;
           }
           catch (error) {
