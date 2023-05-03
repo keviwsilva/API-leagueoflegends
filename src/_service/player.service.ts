@@ -56,6 +56,7 @@ export class PlayerService {
       case 523: return "Aphelios"; break;
       case 22: return "Ashe"; break;
       case 136: return "Aurelion-Sol"; break;
+      case 268:return "Azir";break;
       case 432: return "Bard"; break;
       case 200: return "BelVeth"; break;
       case 53: return "Blitzcrank"; break;
@@ -174,7 +175,7 @@ export class PlayerService {
       case 91: return "Talon"; break;
       case 23: return "Tryndamere"; break;
       case 48: return "Trundle"; break;
-      case 4: return "Twisted Fate"; break;
+      case 4: return "Twisted-Fate"; break;
       case 17: return "Teemo"; break;
       case 223: return "Tahm-Kench"; break;
       case 412: return "Thresh"; break;
