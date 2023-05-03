@@ -9,8 +9,11 @@
     <button type="button" (click)="send()" > Enviar </button>
 </form>
 
+
+<div *ngIf="loading" class="loading"></div>
+
 <div *ngIf="dataReceived" class="player-info" >
-  
+
   <br><ul class="info">
     <li><span><img [src]="'http://ddragon.leagueoflegends.com/cdn/13.8.1/img/profileicon/'+dataReceived.profileIconId+'.png'" alt="" class="profileicon"></span></li>
 

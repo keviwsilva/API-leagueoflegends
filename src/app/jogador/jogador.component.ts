@@ -32,10 +32,12 @@ export class JogadorComponent implements OnInit{
   champsCover:any;
   roleChamps:any;
   championsRoles:any;
-  
+  loading: boolean = false;
+
   async onPlayerNameClicked(playername: string) {
     // console.log(playername)
     try {
+      this.loading = true;
       //this search the player infomation
       const data = await this.playerservice.sendForm(playername).toPromise();
       this.dataReceived = data;
@@ -72,7 +74,7 @@ export class JogadorComponent implements OnInit{
           roleChamp.push(matchingChampion);
         }
 
-        console.log(championNameResults)
+        // console.log(championNameResults)
         this.roleChamps = roleChamp;
         
         this.champsCover = matchingChampion;
@@ -81,7 +83,7 @@ export class JogadorComponent implements OnInit{
         //infomation about the champions
         this.maestrychampions = maestrychampion;
         // console.log(championIds)
-     
+        this.loading = false;
           }catch (error) {
       console.log(error);
     }
@@ -90,6 +92,7 @@ export class JogadorComponent implements OnInit{
 
   async send() {
     try {
+      this.loading = true;
       //this search the player infomation
       const data = await this.playerservice.sendForm(this.playername).toPromise();
       this.dataReceived = data;
@@ -113,7 +116,7 @@ export class JogadorComponent implements OnInit{
           this.playerservice.getChampionName(championId)));
           this.championNames = championNameResults;
 
-          console.log(championNameResults);
+          // console.log(championNameResults);
           
           
           const matchingChampion = this.championsData.find((champions: { name: string; }) => champions.name == championNameResults[0]);
@@ -135,7 +138,7 @@ export class JogadorComponent implements OnInit{
         //infomation about the champions
         this.maestrychampions = maestrychampion;
         // console.log(championIds)
-     
+        this.loading = false;
           }
           catch (error) {
             console.log(error);
