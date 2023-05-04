@@ -14,7 +14,7 @@ export class PlayerService {
 
   //API to find player
   sendForm(playername: string) {
-    const apikey = 'RGAPI-bfeda0bd-bfe2-4629-ac7a-84ac46e0acb9';
+    const apikey = 'RGAPI-74f3728c-6759-45ba-8929-9544bd5a23ec';
     const url = 'https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + encodeURIComponent(playername) + '?api_key=' + apikey;
 
     return this.http.get<any>(url);
@@ -22,21 +22,21 @@ export class PlayerService {
   
   //API to find the maestry champions from player
   getPlayer(playerid: string) {
-    const apikey = 'RGAPI-bfeda0bd-bfe2-4629-ac7a-84ac46e0acb9';
+    const apikey = 'RGAPI-74f3728c-6759-45ba-8929-9544bd5a23ec';
     const urlchampion = 'https://br1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/' + playerid + '?api_key=' + apikey;
     
     return this.http.get<any>(urlchampion);
   }
 
   getPlayerMatches(playerPuuid:string){
-    const apikey = 'RGAPI-bfeda0bd-bfe2-4629-ac7a-84ac46e0acb9';
+    const apikey = 'RGAPI-74f3728c-6759-45ba-8929-9544bd5a23ec';
 
     const urlmatchs = 'https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/'+playerPuuid+'/ids?start=0&count=20&api_key='+apikey;
     return this.http.get<any>(urlmatchs);
   }
 
   getInfoMatch(matchId: string){
-    const apikey = 'RGAPI-bfeda0bd-bfe2-4629-ac7a-84ac46e0acb9';
+    const apikey = 'RGAPI-74f3728c-6759-45ba-8929-9544bd5a23ec';
 
     const urlmatchid = 'https://americas.api.riotgames.com/lol/match/v5/matches/'+matchId+'?api_key='+apikey;
     return this.http.get<any>(urlmatchid);
@@ -71,7 +71,7 @@ export class PlayerService {
       case 31: return "Chogath"; break;
       case 42: return "Corki"; break;
       case 122: return "Darius"; break;
-      case 36: return "DrMundo"; break;
+      case 36: return "Dr-Mundo"; break;
       case 131: return "Diana"; break;
       case 119: return "Draven"; break;
       case 245: return "Ekko"; break;
@@ -198,7 +198,7 @@ export class PlayerService {
       case 62: return "Wukong"; break;
       case 19: return "Warwick"; break;
       case 101: return "Xerath"; break;
-      case 5: return "XinZhao"; break;
+      case 5: return "Xin-Zhao"; break;
       case 498: return "Xayah"; break;
       case 157: return "Yasuo"; break;
       case 777: return "Yone"; break;

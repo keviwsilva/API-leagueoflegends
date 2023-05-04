@@ -1,8 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { PlayerService } from 'src/_service/player.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import  axios  from 'axios';
 import { Champions } from '../data/champions';
 import { MatchesComponent } from '../matches/matches.component';
 
@@ -13,12 +12,13 @@ import { MatchesComponent } from '../matches/matches.component';
   styleUrls: ['./jogador.component.css']
 })
 export class JogadorComponent implements OnInit{
-
+  // @ViewChild('audioOption') audioPlayerRef?: ElementRef ;
+  // audioPlayer: HTMLAudioElement;
   playername!: string;
   championNames!: string[] ;
   championsData: any = Champions;
   constructor(private playerservice: PlayerService){
-   
+    
   }
   
 
@@ -36,6 +36,9 @@ export class JogadorComponent implements OnInit{
 
   async onPlayerNameClicked(playername: string) {
     // console.log(playername)
+    let audio = document.getElementById("audioOption2") as HTMLAudioElement;
+    audio.play();
+    audio.volume = 0.3;
     try {
       this.loading = true;
       //this search the player infomation
@@ -91,6 +94,9 @@ export class JogadorComponent implements OnInit{
   
 
   async send() {
+    let audio = document.getElementById("audioOption1") as HTMLAudioElement;
+    audio.play();
+    audio.volume = 0.3;
     try {
       this.loading = true;
       //this search the player infomation

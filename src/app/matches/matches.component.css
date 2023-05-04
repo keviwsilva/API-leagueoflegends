@@ -64,6 +64,18 @@
     margin-bottom: 0;
 }
 
+.kda{
+    margin-left: 100px;
+    width: 150px;
+}
+
+.cs{
+    width: 100px;
+}
+
+.gold{
+    width: 250px;
+}
 
 .participants{
     display: flex;

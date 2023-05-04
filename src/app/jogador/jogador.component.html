@@ -4,9 +4,15 @@
 
 <form class="search-player">
     <label for="nome">Player Nickname:</label>
-    <input type="text" [(ngModel)]="playername" name="nome" id="nome">
+    <input type="text" [(ngModel)]="playername" name="nome" id="nome" minlength="1">
     <br>
     <button type="button" (click)="send()" > Enviar </button>
+    <audio id="audioOption1" >
+      <source src="../../assets/sounds/Zed_Original_Move_7.mp4" type="audio/mpeg">
+    </audio>
+    <audio id="audioOption2" >
+      <source src="../../assets/sounds/Zed_Original_Move_6.mp4" type="audio/mpeg">
+    </audio>
 </form>
 
 
