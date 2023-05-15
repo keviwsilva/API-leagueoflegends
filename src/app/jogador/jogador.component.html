@@ -18,6 +18,7 @@
 
 <div *ngIf="loading" class="loading"></div>
 
+<div *ngIf="result">
 <div *ngIf="dataReceived" class="player-info" >
 
   <br><ul class="info">
@@ -51,6 +52,12 @@
   <div *ngIf="dataReceived" class="matchs">
     <app-matches [dataReceived]="dataReceived"></app-matches>
   </div>
+</div>
+<div *ngIf="erro" class="erro">
+  <h1>{{erro}}</h1>
+  <img src="../../assets/img/amumu.png">
+</div>
+  
 
     
 

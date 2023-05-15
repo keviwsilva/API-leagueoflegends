@@ -3,6 +3,10 @@
     justify-content: center;
     align-items: center;
     color:antiquewhite;
+    background-color: rgba(184, 161, 131, 0.562);
+    border-radius: 10px;
+    height: 60px;
+    margin-bottom: 15px;
 }
 
 .loading {

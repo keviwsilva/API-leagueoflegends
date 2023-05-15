@@ -35,16 +35,18 @@
     width: 300px;
     border: solid 3px black;
     background: transparent;
+    color: #fff;
     border-radius: 5px;
     padding: 5px;
 }
 
 .search-player input:active{
-    background-color: transparent;
+    background-color: #00000041;
     color: #fff;
+    backdrop-filter: blur;
 }
 .search-player input::content{
-    background-color: transparent;
+    background-color: #00000098;
 }
 
 .search-player button{
@@ -179,4 +181,28 @@
     width: 1215px;
     margin: 15px;
     border-radius: 20px;
+}
+
+
+.erro{ 
+    margin-top: 30px;
+    background-color: rgba(250, 235, 215, 0.466);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    height: 300px;
+    width: 1000px;
+    padding: 10px;
+    border-radius: 20px;
+    z-index: 200    ;
+}
+
+.erro h1{
+    text-align: center;
+}
+
+.erro img{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
 }
