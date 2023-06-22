@@ -5,12 +5,14 @@
 }
 
 body{
-    background-image: url(/assets/img/backgroud.jpg);
+    /* background-image: url(/assets/img/backgroud.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: fixed; */
+    background-color: #1d1d1d;
     height: 100vh;
     font-family: frizzquadratica;
+    /* overflow-x: hidden; */
 }
 
 @font-face {
@@ -25,7 +27,7 @@ body{
   }
 
 ::-webkit-scrollbar-track {
-    background:transparent;
+    background:#0e0e0e;
     padding: 2px;
   }
 

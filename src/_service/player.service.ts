@@ -14,10 +14,10 @@ import { catchError } from "rxjs/operators";
 export class PlayerService {
   constructor(private http: HttpClient) { }
 
+  private apikey:string = "RGAPI-a9de3aee-f777-48b0-8b0f-5c10563e67d6"
   //API to find player
   sendForm(playername: string) {
-    const apikey = 'RGAPI-64b138b1-cbae-4717-a8c5-e304bbc4929e';
-    const url = 'https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + encodeURIComponent(playername) + '?api_key=' + apikey;
+    const url = 'https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + encodeURIComponent(playername) + '?api_key=' + this.apikey;
 
     return this.http.get<any>(url).pipe(catchError((error: HttpErrorResponse) => {
       let errorMessage = 'Ocorreu um erro ao buscar o jogador';
@@ -33,23 +33,20 @@ export class PlayerService {
   
   //API to find the maestry champions from player
   getPlayer(playerid: string) {
-    const apikey = 'RGAPI-64b138b1-cbae-4717-a8c5-e304bbc4929e';
-    const urlchampion = 'https://br1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/' + playerid + '?api_key=' + apikey;
+    const urlchampion = 'https://br1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/' + playerid + '?api_key=' + this.apikey;
     
     return this.http.get<any>(urlchampion);
   }
 
   getPlayerMatches(playerPuuid:string){
-    const apikey = 'RGAPI-64b138b1-cbae-4717-a8c5-e304bbc4929e';
 
-    const urlmatchs = 'https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/'+playerPuuid+'/ids?start=0&count=20&api_key='+apikey;
+    const urlmatchs = 'https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/'+playerPuuid+'/ids?start=0&count=20&api_key='+ this.apikey;
     return this.http.get<any>(urlmatchs);
   }
 
   getInfoMatch(matchId: string){
-    const apikey = 'RGAPI-64b138b1-cbae-4717-a8c5-e304bbc4929e';
 
-    const urlmatchid = 'https://americas.api.riotgames.com/lol/match/v5/matches/'+matchId+'?api_key='+apikey;
+    const urlmatchid = 'https://americas.api.riotgames.com/lol/match/v5/matches/'+matchId+'?api_key='+ this.apikey;
     return this.http.get<any>(urlmatchid);
   }
   

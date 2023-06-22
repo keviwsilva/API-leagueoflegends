@@ -40,7 +40,10 @@ export class MatchesComponent implements OnChanges{
     this.playerName = this.dataReceived.name
     this.playerPuuid = this.dataReceived.puuid;
     
-    
+
+
+
+
     try {
       this.loading = true;
 
@@ -58,11 +61,13 @@ export class MatchesComponent implements OnChanges{
           const totalCschamp = [];
           const matchMode = [];
           const champId = [];
+
           for (let i = 0; i <= 19; i++) {
             const result = await this.playerservice.getInfoMatch(matchId[i]).toPromise();
             const cs = []
             const totalMinionsKilled = [];
             const idChamp = [];
+            console.log(result)
             for (let i = 0; i <= 9; i++) {
               const minionsKiled = result.info.participants[i].totalMinionsKilled;
               const neutralminions = result.info.participants[i].neutralMinionsKilled;
@@ -77,6 +82,7 @@ export class MatchesComponent implements OnChanges{
               cs.push(perChamp)
               idChamp.push(champ)
             }
+            
             totalCschamp.push(cs)
             minions.push(totalMinionsKilled)
             matchMode.push(result.info.gameMode)
@@ -86,21 +92,18 @@ export class MatchesComponent implements OnChanges{
           this.matchinfo = matchIds
           this.championsIds =champId;
 
-          const nameResult = [];
-            
-            for (let i = 0; i <= 19; i++) {
-              const championNameResults = this.championsIds[i]
-              const info = [];
-             for (let i = 0; i <= 9; i++) {
-          const result = championNameResults[i].championId
-          const championName = this.playerservice.getChampionName(result);
-          info.push(championName)
-             }
-             
-             
-            nameResult.push(info)
-         
-          }
+          const nameResult: string[][] = [];
+          this.championsIds.forEach(idResults => {
+            const nameResults: string[] = [];
+          
+            idResults.forEach((result: { championId: number; }) => {
+              const championName = this.playerservice.getChampionName(result.championId);
+              nameResults.push(championName);
+            });
+          
+            nameResult.push(nameResults);
+          });
+          
           // console.log(nameResult)
           this.picChamp = nameResult;
 

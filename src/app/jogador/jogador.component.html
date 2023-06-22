@@ -1,63 +1,50 @@
-<div class="title-search">
+<!-- <div class="title-search">
   <h2>SHADOW SEARCH</h2>
-</div>
+</div> -->
 
 <form class="search-player">
-    <label for="nome">Player Nickname:</label>
-    <input type="text" [(ngModel)]="playername" name="nome" id="nome" minlength="1">
-    <br>
-    <button type="button" (click)="send()" > Enviar </button>
-    <audio id="audioOption1" >
-      <source src="../../assets/sounds/Zed_Original_Move_7.mp4" type="audio/mpeg">
-    </audio>
-    <audio id="audioOption2" >
-      <source src="../../assets/sounds/Zed_Original_Move_6.mp4" type="audio/mpeg">
-    </audio>
+  <label for="nome">Player Nickname:</label>
+  <input type="text" [(ngModel)]="playername" name="nome" id="nome" minlength="1" autocomplete="off">
+  <br>
+  <button type="button" (click)="send()"> Enviar </button>
+  <audio id="audioOption1">
+    <source src="../../assets/sounds/Zed_Original_Move_7.mp4" type="audio/mpeg">
+  </audio>
+  <audio id="audioOption2">
+    <source src="../../assets/sounds/Zed_Original_Move_6.mp4" type="audio/mpeg">
+  </audio>
 </form>
 
 
 <div *ngIf="loading" class="loading"></div>
-
-<div *ngIf="result">
-<div *ngIf="dataReceived" class="player-info" >
-
-  <br><ul class="info">
-    <li><span><img [src]="'http://ddragon.leagueoflegends.com/cdn/13.8.1/img/profileicon/'+dataReceived.profileIconId+'.png'" alt="" class="profileicon"></span></li>
-
-    <li> 
-      <ul class="info2">
-        <li><span class="summoner">{{dataReceived.name}}</span></li>
-               <br>
-               <li><span class="level">Nivel: {{dataReceived.summonerLevel}}</span></li>
-              </ul>
-              
-            </li>
-      </ul>
-        <img [src]="champsCover.coverPicture" class="back-player">
+  <div *ngIf="result" class="result">
+    <div *ngIf="dataReceived" class="player-info">
+      <img [src]="'http://ddragon.leagueoflegends.com/cdn/13.8.1/img/profileicon/'+dataReceived.profileIconId+'.png'"
+        alt="" class="profileicon">
+      <span class="summoner">{{dataReceived.name}}</span>
+      <span class="level">Nivel: {{dataReceived.summonerLevel}}</span>
+      <img [src]="champsCover.coverPicture" class="back-player">
     </div>
-    <br>
-<br>
-<br>
-  <div *ngFor="let champion of maestrychampions; let i = index;" class="maestrys">
-    <br>
-    <img [src]="'https://www.mobafire.com/images/avatars/'+championNames[i]+'-classic.png'" alt="" >
-    <ul class="info-maestry">
-      <li><span>Nome do Campeão: {{championNames[i]}}</span></li>
-      <li><span>Nivél: {{champion.championLevel}}</span></li>
-      <li><span>Pontos de maestria:{{champion.championPoints}}</span></li>
-      <!-- <li><span>Função: {{roleChamps[i].role}}</span></li> -->
-      
-    </ul>
+    <div class="maestry">
+      <div *ngFor="let champion of maestrychampions; let i = index;" class="maestrys">
+        <img [src]="'https://www.mobafire.com/images/avatars/'+championNames[i]+'-classic.png'" alt="">
+        <ul class="info-maestry">
+          <li><span>Nome do Campeão: {{championNames[i]}}</span></li>
+          <li><span>Nivél: {{champion.championLevel}}</span></li>
+          <li><span>Pontos de maestria:{{champion.championPoints}}</span></li>
+          <!-- <li><span>Função: {{roleChamps[i].role}}</span></li> -->
+
+        </ul>
+      </div>
+    </div>
+    <div class="partida">
+
+    <div *ngIf="dataReceived" class="matchs">
+      <app-matches [dataReceived]="dataReceived"></app-matches>
+    </div>
+    </div>
   </div>
-  <div *ngIf="dataReceived" class="matchs">
-    <app-matches [dataReceived]="dataReceived"></app-matches>
-  </div>
-</div>
 <div *ngIf="erro" class="erro">
   <h1>{{erro}}</h1>
   <img src="../../assets/img/amumu.png">
 </div>
-  
-
-    
-

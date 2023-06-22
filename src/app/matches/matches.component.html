@@ -1,6 +1,6 @@
 
 
-<div *ngIf="matchesPlayer && matchesPlayer.length" class="matches">
+<!-- <div *ngIf="matchesPlayer && matchesPlayer.length" class="matches">
   <h1 class="title-matchs">Partidas recentes de {{ playerName }}</h1>
   
   <div *ngIf="loading" class="loading"></div>
@@ -21,6 +21,29 @@
         </div>
       </li>
     </ul>
+  </div>
+</div> -->
+
+
+
+<div *ngIf="matchesPlayer && matchesPlayer.length" class="matches">
+  <h1 class="title-matchs">Partidas recentes de {{ playerName }}</h1>
+  
+  <div *ngIf="loading" class="loading"></div>
+  <div *ngFor="let partidas of matchesPlayer; let i = index" class="matches-info">
+
+        <div *ngIf="matchinfo && matchinfo.length > i">
+          <h2 class="matchMode">{{matchMode[i]}}</h2>
+          <div *ngFor="let match of matchinfo[i];let j =index" class="participants">
+            <h3 class="summonerName" (click)="playerNamesearch(match.summonerName)">Name:{{match.summonerName}}</h3>
+            <img [src]="'https://www.mobafire.com/images/avatars/'+picChamp[i][j]+'-classic.png'" alt="" >
+            <h3 class="championName">{{match.championName}}</h3>
+            <h3 class="kda">KDA: {{match.kills}}/{{match.deaths}}/{{match.assists}}</h3>
+            <h3 class="cs">CS: {{totalCs[i][j]}}</h3>
+            <h3 class="gold">Gold per minute:{{match.challenges.goldPerMinute.toString() | number:'1.0-2'}}</h3>
+            <h3>{{match.win ? 'won': 'lost'}}</h3>
+          </div>
+        </div>
   </div>
 </div>
 

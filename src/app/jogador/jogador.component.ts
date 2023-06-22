@@ -116,6 +116,7 @@ export class JogadorComponent implements OnInit{
         const championNameResults = await Promise.all(championIds.map(championId =>
           this.playerservice.getChampionName(championId)));
           this.championNames = championNameResults;
+          console.log(maestrychampion)
 
           const matchingChampion = this.championsData.find((champions: { name: string; }) => champions.name == championNameResults[0]);
          
