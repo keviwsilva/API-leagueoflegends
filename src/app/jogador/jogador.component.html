@@ -2,17 +2,17 @@
   <h2>SHADOW SEARCH</h2>
 </div> -->
 
-<form class="search-player">
+<form class="search-player" id="search-player" (keyup.enter)="send()" >
   <label for="nome">Player Nickname:</label>
   <input type="text" [(ngModel)]="playername" name="nome" id="nome" minlength="1" autocomplete="off">
   <br>
   <button type="button" (click)="send()"> Enviar </button>
-  <audio id="audioOption1">
+  <!-- <audio id="audioOption1">
     <source src="../../assets/sounds/Zed_Original_Move_7.mp4" type="audio/mpeg">
   </audio>
   <audio id="audioOption2">
     <source src="../../assets/sounds/Zed_Original_Move_6.mp4" type="audio/mpeg">
-  </audio>
+  </audio> -->
 </form>
 
 
@@ -23,6 +23,10 @@
         alt="" class="profileicon">
       <span class="summoner">{{dataReceived.name}}</span>
       <span class="level">Nivel: {{dataReceived.summonerLevel}}</span>
+      <div class="rank">
+        <span >{{rankinfo[0].tier}} - </span>
+        <span >{{rankinfo[0].rank}}</span>
+      </div>
       <img [src]="champsCover.coverPicture" class="back-player">
     </div>
     <div class="maestry">

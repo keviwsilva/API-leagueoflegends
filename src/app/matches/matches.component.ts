@@ -18,6 +18,9 @@ export class MatchesComponent implements OnChanges{
   matchMode!: any[];
   jogador?: JogadorComponent;
   championsData: any = Champions;
+  showPopUpFlag: boolean = false;
+  // popupPlayers: any[] = []
+  clickedMatchIndex!: number;
 
   @Output() playerNameClicked = new EventEmitter<string>();
   championsIds?: any[];
@@ -67,7 +70,7 @@ export class MatchesComponent implements OnChanges{
             const cs = []
             const totalMinionsKilled = [];
             const idChamp = [];
-            console.log(result)
+            console.log(result);
             for (let i = 0; i <= 9; i++) {
               const minionsKiled = result.info.participants[i].totalMinionsKilled;
               const neutralminions = result.info.participants[i].neutralMinionsKilled;
@@ -113,6 +116,9 @@ export class MatchesComponent implements OnChanges{
     
         this.totalCs = minions
         this.loading = false;
+
+
+       
       }
       
        catch (error) {
@@ -120,6 +126,27 @@ export class MatchesComponent implements OnChanges{
         }
       }
       
+      getPlayerCardStyles(player: any) {
+        if (player.win) {
+          return { 
+            'background-color': 'green',
+            'float': 'left'
+          };
+        } else {
+          return { 
+            'background-color': 'red',
+            'float': 'right'
+          };
+        }
+      }
+      
+
+      showPopup(matchIndex: number, playerIndex: number): void {
+        this.clickedMatchIndex = matchIndex;
+        this.showPopUpFlag = true;
+        this.playerName = this.matchinfo[matchIndex][playerIndex].summonerName;
+        console.log(matchIndex)
+      }
       
 
       

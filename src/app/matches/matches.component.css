@@ -92,3 +92,87 @@ h3{
 .participants img{
     height: 50px;
 } */
+
+.matches-info{
+    /* position: relative; */
+    height: 200px;
+    z-index: 0;
+}
+
+.information{
+    display: flex;
+    border-radius: 10px;
+    color: #fff;
+    z-index: 3;
+}
+
+.matches-info .participants{
+    border-radius: 10px;
+}
+
+.information img{
+    border-radius: 10px;
+    width: 150px;
+}
+
+.information .text-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.matches-all-info{
+    position:relative absolute;
+    left: 50%;
+    top: 50%;
+    width: 90vw;
+    transform: translate(-50%, -50%);
+    background-color: antiquewhite;
+    z-index: 30;
+    display: grid;
+    grid-template: 100px 40vh/repeat(2, 1fr);
+    text-align: center;
+}
+
+.matches-info .header{
+    grid-area: 1/1/2/3;
+}
+
+.matches-all-info .team1{
+    grid-area: 2/1/3/2;
+    width: 100%;
+}
+
+.matches-all-info .team1{
+    grid-area: 2/2/3/3;
+    width: 100%;
+}
+
+
+.matches-all-info .participants{
+    height: 15%;
+    display: flex;
+    border: 1px solid #000;
+    width: 100%;
+    /* position: relative; */
+    /* top: 0; */
+}
+
+.matches-all-info .participants1{
+    height: 15%;
+    display: flex;
+    border: 1px solid #000;
+    width: 100%;
+    /* position:absolute; */
+    top: 0;
+}
+
+
+
+
+
+
+
+.matches-all-info .participants img{
+    width: 50px;
+
+}

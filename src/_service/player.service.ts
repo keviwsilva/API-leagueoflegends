@@ -14,7 +14,7 @@ import { catchError } from "rxjs/operators";
 export class PlayerService {
   constructor(private http: HttpClient) { }
 
-  private apikey:string = "RGAPI-a9de3aee-f777-48b0-8b0f-5c10563e67d6"
+  private apikey:string = "RGAPI-057b7e62-83d0-449b-95c7-ac66b4024919"
   //API to find player
   sendForm(playername: string) {
     const url = 'https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + encodeURIComponent(playername) + '?api_key=' + this.apikey;
@@ -48,6 +48,12 @@ export class PlayerService {
 
     const urlmatchid = 'https://americas.api.riotgames.com/lol/match/v5/matches/'+matchId+'?api_key='+ this.apikey;
     return this.http.get<any>(urlmatchid);
+  }
+
+  getRank(summonerId: string){
+    const urlrank = 'https://br1.api.riotgames.com/lol/league/v4/entries/by-summoner/'+summonerId+'?api_key='+ this.apikey
+
+    return this.http.get<any>(urlrank)
   }
   
   // this switch case turn the champion id to their name 

@@ -12,6 +12,7 @@ import { MatchesComponent } from '../matches/matches.component';
   styleUrls: ['./jogador.component.css']
 })
 export class JogadorComponent implements OnInit{
+  rankinfo: any;
   constructor(private playerservice: PlayerService){
     
   }
@@ -30,9 +31,9 @@ export class JogadorComponent implements OnInit{
   result: boolean = false;
 
   async onPlayerNameClicked(playername: string) {
-    let audio = document.getElementById("audioOption2") as HTMLAudioElement;
-    audio.play();
-    audio.volume = 0.3;
+    // let audio = document.getElementById("audioOption2") as HTMLAudioElement;
+    // audio.play();
+    // audio.volume = 0.3;
     try {
       this.erro = false
       this.loading = true;
@@ -89,9 +90,9 @@ export class JogadorComponent implements OnInit{
   
 
   async send() {
-    let audio = document.getElementById("audioOption1") as HTMLAudioElement;
-    audio.play();
-    audio.volume = 0.3;
+    // let audio = document.getElementById("audioOption1") as HTMLAudioElement;
+    // audio.play();
+    // audio.volume = 0.3;
     try {
       this.erro = false
       this.loading = true;
@@ -99,6 +100,16 @@ export class JogadorComponent implements OnInit{
       const data = await this.playerservice.sendForm(this.playername).toPromise();
       this.dataReceived = data;
       const playerId = data.id;
+
+      const rank = await this.playerservice.getRank(playerId).toPromise();
+      console.log(rank)
+      
+      const solo = rank.filter((item: { queueType: string; }) =>item.queueType === "RANKED_SOLO_5x5")
+      
+      this.rankinfo = solo;
+      console.log(this.rankinfo[0].tier)
+
+
       
       // this use the result from the first API and use the player id to find their maestry champions
       const result = await this.playerservice.getPlayer(playerId).toPromise();
