@@ -1,7 +1,7 @@
 ## Shadow Search 
 Este é um projeto Angular para exibir informações de jogadores de League of Legends.
 
-<img src="src/assets/img/banner.png" width="85%" >
+<img src="src/assets/img/banner.png" width="100%">
 
 
 ## Funcionalidades
