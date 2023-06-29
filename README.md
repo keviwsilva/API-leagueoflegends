@@ -1,29 +1,83 @@
-# ZedApp
+## Shadow Search 
+Este é um projeto Angular para exibir informações de jogadores de League of Legends.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
+<img src="src/assets/img/banner.png" width="300px" >
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Funcionalidades
+Permite pesquisar um jogador pelo nome de usuário.
+Exibe os principais campeões e estatísticas do jogador.
+Mostra as partidas recentes do jogador.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Pré-requisitos
+Certifique-se de ter o seguinte instalado em seu ambiente de desenvolvimento:
 
-## Build
+Node.js (versão 12 ou superior)
+Angular CLI
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Instalação
+Siga as instruções abaixo para configurar e executar o projeto:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Clone este repositório para o seu computador:
 
-## Running end-to-end tests
+```
+git clone https://github.com/seu-usuario/projeto-jogador.git
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Navegue até o diretório do projeto:
 
-![alt text]("src/assets/img/banner.png")
+
+```
+cd projeto-jogador
+
+```
+
+
+Instale as dependências do projeto:
+
+```
+npm install
+
+```
+
+
+Inicie o servidor de desenvolvimento:
+
+```
+ng serve
+
+```
+
+
+Abra o navegador e acesse http://localhost:4200 para ver o projeto em execução.
+
+## Configuração
+Antes de executar o projeto, você precisará configurar as chaves de API necessárias. Siga as etapas abaixo:
+
+Renomeie o arquivo src/environments/environment.example.ts para src/environments/environment.ts.
+
+Abra o arquivo src/environments/environment.ts e insira suas chaves de API nos campos apropriados.
+
+## API Utilizadas
+Este projeto faz uso das seguintes APIs:
+
+API de Jogadores: https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/playername?api_key=apikey
+
+API da maestria com campeoes: https://br1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/playerid?api_key=apikey
+
+API do ID das partidas: https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/playerPuuid/ids?start=0&count=20&api_key=apikey
+
+API onde pega informação da partida: https://americas.api.riotgames.com/lol/match/v5/matches/matchIdapi_key=apikey
+
+API do rank do jogador: https://br1.api.riotgames.com/lol/league/v4/entries/by-summoner/summonerId?api_key=apikey
+
+
+
+Certifique-se de obter suas chaves de API válidas para usar neste projeto.
+
+## Contribuição
+Contribuições são bem-vindas! Se você tiver sugestões, correções de bugs ou melhorias para o projeto, sinta-se à vontade para abrir uma issue ou enviar um pull request.
