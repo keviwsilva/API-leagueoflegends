@@ -249,6 +249,13 @@
 }
 
 
+.search-player button:hover{
+    background-color: #000;
+    color: #fff;
+}
+
+
+
 .result{
     position: relative;
     left: 50%;
@@ -330,7 +337,9 @@
 .maestrys{
     position: relative;
     width: 100%;
-    background-color: #161616bb;
+    /* background: linear-gradient(to bottom, #161616bb , #db00ef); */
+    
+    background: linear-gradient(120deg, #4613b4, #db00ef );
     border: 1px solid #2e2e2e;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -359,3 +368,30 @@
     grid-area: 1/2/3/3;
     z-index: 2;
 }
+
+
+
+
+.erro{ 
+    margin-top: 30px;
+    background: linear-gradient(120deg, #4613b4, #db00ef );
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    height: 300px;
+    width: 1000px;
+    padding: 10px;
+    border-radius: 20px;
+    z-index: 200    ;
+}
+
+.erro h1{
+    text-align: center;
+}
+
+.erro img{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    height: 80%;
+} 

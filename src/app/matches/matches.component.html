@@ -8,17 +8,26 @@
 <div *ngFor="let partidas of matchesPlayer; let i = index" class="matches-info">
   <div *ngIf="matchinfo && matchinfo.length > i">
     <h2 class="matchMode">{{matchMode[i]}}</h2>
-    <div *ngFor="let match of matchinfo[i]; let j = index" class="participants" [ngStyle]="{'background-color':match.win ? '#3CBC8D' : '#e92e2ed8' }">
+    <div *ngFor="let match of matchinfo[i]; let j = index" class="participants" [ngStyle]="{'background-color':match.win ? '#5FD1A7' : '#e92e2ed8' }">
       <ng-container *ngIf="match.summonerName === playerName">
         <div class="information" (click)="showPopup(i, j)">
           <img [src]="'https://www.mobafire.com/images/avatars/'+picChamp[i][j]+'-classic.png'" alt="">
           <div class="info-text">
-            <h3 class="summonerName">Name:{{match.summonerName}}</h3>
-            <h3 class="championName">{{match.championName}}</h3>
             <h3 class="kda">KDA: {{match.kills}}/{{match.deaths}}/{{match.assists}}</h3>
             <h3 class="cs">CS: {{totalCs[i][j]}}</h3>
             <h3 class="gold">Gold per minute:{{match.challenges.goldPerMinute.toString() | number:'1.0-2'}}</h3>
+            
           </div>
+            <div class="items">
+
+            <img [src]="'https://ddragon.leagueoflegends.com/cdn/13.12.1/img/item/'+match.item0+'.png'" alt="">
+            <img [src]="'https://ddragon.leagueoflegends.com/cdn/13.12.1/img/item/'+match.item1+'.png'" alt="">
+            <img [src]="'https://ddragon.leagueoflegends.com/cdn/13.12.1/img/item/'+match.item2+'.png'" alt="">
+            <img [src]="'https://ddragon.leagueoflegends.com/cdn/13.12.1/img/item/'+match.item3+'.png'" alt="">
+            <img [src]="'https://ddragon.leagueoflegends.com/cdn/13.12.1/img/item/'+match.item4+'.png'" alt="">
+            <img [src]="'https://ddragon.leagueoflegends.com/cdn/13.12.1/img/item/'+match.item5+'.png'" alt="">
+            <!-- <img [src]="'https://ddragon.leagueoflegends.com/cdn/13.12.1/img/item/'+match.item6+'.png'" alt=""> -->
+            </div>
         </div>
       </ng-container>
     </div>
@@ -28,30 +37,57 @@
     <div class="header">
     <h2 class="matchMode">{{matchMode[clickedMatchIndex]}}</h2>
     <a class="close" (click)="showPopUpFlag=false">X</a>
-</div>
+  </div>
 
     <div class="team1">
+      
     <div *ngFor="let player of matchinfo[clickedMatchIndex].slice(0,5); let j = index" class="participants"  >
-      <img [src]="'https://www.mobafire.com/images/avatars/'+picChamp[clickedMatchIndex][j]+'-classic.png'" alt="">
+      <ng-container *ngIf="j === 0" class="resultado" >
+        <h3 class="win" [ngStyle]="{'color': player.win ? '#13ff4e' : '#ee0404'}">{{player.win ? 'Vitória' : 'Derrota'}}</h3>
+      </ng-container>
 
-      <h3 class="summonerName" (click)="playerNamesearch(player.summonerName)" (click)="showPopUpFlag = false">Name:{{player.summonerName}}</h3>
-      <h3 class="championName">{{player.championName}}</h3>
+      <img [src]="'https://www.mobafire.com/images/avatars/'+picChamp[clickedMatchIndex][j]+'-classic.png'" [alt]="player.championName">
+      <h3 class="summonerName" (click)="playerNamesearch(player.summonerName)" (click)="showPopUpFlag = false">{{player.summonerName}}</h3>
+      <div class="info-text">
       <h3 class="kda">KDA: {{player.kills}}/{{player.deaths}}/{{player.assists}}</h3>
       <h3 class="cs">CS: {{totalCs[clickedMatchIndex][j]}}</h3>
       <h3 class="gold">Gold per minute:{{player.challenges.goldPerMinute.toString() | number:'1.0-2'}}</h3>
-      <h3>{{player.win ? 'won': 'lost'}}</h3>
+      </div>
+            <div class="items">
+
+            <img [src]="'https://ddragon.leagueoflegends.com/cdn/13.12.1/img/item/'+player.item0+'.png'" alt="">
+            <img [src]="'https://ddragon.leagueoflegends.com/cdn/13.12.1/img/item/'+player.item1+'.png'" alt="">
+            <img [src]="'https://ddragon.leagueoflegends.com/cdn/13.12.1/img/item/'+player.item2+'.png'" alt="">
+            <img [src]="'https://ddragon.leagueoflegends.com/cdn/13.12.1/img/item/'+player.item3+'.png'" alt="">
+            <img [src]="'https://ddragon.leagueoflegends.com/cdn/13.12.1/img/item/'+player.item4+'.png'" alt="">
+            <img [src]="'https://ddragon.leagueoflegends.com/cdn/13.12.1/img/item/'+player.item5+'.png'" alt="">
+            <!-- <img [src]="'https://ddragon.leagueoflegends.com/cdn/13.12.1/img/item/'+player.item6+'.png'" alt=""> -->
+            </div>
     </div>
     </div>
     <div class="team2">
-    <div *ngFor="let player of matchinfo[clickedMatchIndex].slice(5,10); let j = index" class="participants1" >
-      <img [src]="'https://www.mobafire.com/images/avatars/'+picChamp[clickedMatchIndex][j]+'-classic.png'" alt="">
-
-      <h3 class="summonerName" (click)="playerNamesearch(player.summonerName)" (click)="showPopUpFlag = false">Name:{{player.summonerName}}</h3>
-      <h3 class="championName">{{player.championName}}</h3>
+    <div *ngFor="let player of matchinfo[clickedMatchIndex].slice(5,10); let j = index" class="participants" >
+      <ng-container *ngIf="j === 0" class="resultado">
+        <h3 class="win1" [ngStyle]="{'color': player.win ? '#13ff4e' : '#ee0404'}">{{player.win ? 'Vitória' : 'Derrota'}}</h3>
+      </ng-container>
+      <img [src]="'https://www.mobafire.com/images/avatars/'+picChamp[clickedMatchIndex][j+5]+'-classic.png'" [alt]="player.championName">
+      <h3 class="summonerName" (click)="playerNamesearch(player.summonerName)" (click)="showPopUpFlag = false">{{player.summonerName}}</h3>
+      <div class="info-text">
       <h3 class="kda">KDA: {{player.kills}}/{{player.deaths}}/{{player.assists}}</h3>
       <h3 class="cs">CS: {{totalCs[clickedMatchIndex][j]}}</h3>
       <h3 class="gold">Gold per minute:{{player.challenges.goldPerMinute.toString() | number:'1.0-2'}}</h3>
-      <h3>{{player.win ? 'won': 'lost'}}</h3>
+      </div>
+            <div class="items">
+
+            <img [src]="'https://ddragon.leagueoflegends.com/cdn/13.12.1/img/item/'+player.item0+'.png'" alt="">
+            <img [src]="'https://ddragon.leagueoflegends.com/cdn/13.12.1/img/item/'+player.item1+'.png'" alt="">
+            <img [src]="'https://ddragon.leagueoflegends.com/cdn/13.12.1/img/item/'+player.item2+'.png'" alt="">
+            <img [src]="'https://ddragon.leagueoflegends.com/cdn/13.12.1/img/item/'+player.item3+'.png'" alt="">
+            <img [src]="'https://ddragon.leagueoflegends.com/cdn/13.12.1/img/item/'+player.item4+'.png'" alt="">
+            <img [src]="'https://ddragon.leagueoflegends.com/cdn/13.12.1/img/item/'+player.item5+'.png'" alt="">
+            <!-- <img [src]="'https://ddragon.leagueoflegends.com/cdn/13.12.1/img/item/'+player.item6+'.png'" alt=""> -->
+            </div>
+      <!-- <h3>{{player.win ? 'win' : 'lost'}}</h3> -->
     </div>
     </div>
   </div>

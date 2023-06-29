@@ -1,100 +1,10 @@
-/* .title-matchs{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color:antiquewhite;
-    background-color: rgba(184, 161, 131, 0.562);
-    border-radius: 10px;
-    height: 60px;
-    margin-bottom: 15px;
+.matches{
+    text-align: center;
+    color: #fff;
 }
 
-.loading {
-    background-image: url('../../assets/img/zed.gif');
-    position: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: 9999;
-    height: 300px;
-    width: 250px;
-    overflow: visible;
-    margin: auto;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-  }
-
-.matchMode{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
-
-.matches {
-    margin-bottom: 100px;
-    padding-bottom: 300px;
-    list-style: none;
-    width: 1215px;
-} 
-
-.mathes-info{
-    margin-bottom: 20px;
-}
-
-.matches ul{
-    margin-bottom: 50px;
-    background-color: #a9a9a9a9;
-    border-radius: 10px;
-    list-style: none;
-}
-
-.matches  .participants{
-    
-    border-bottom: solid black ;
-}
-
-.summonerName{
-    color: antiquewhite;
-    font-size: 15px;
-    width: 180px;
-    padding-left: 20px;
-}
-.championimg{
-    height: 50px;
-    margin-left: 145px;
-    border-radius: 10px;
-    margin-bottom: 0;
-}
-
-.kda{
-    margin-left: 100px;
-    width: 150px;
-}
-
-.cs{
-    width: 100px;
-}
-
-.gold{
-    width: 250px;
-}
-
-.participants{
-    display: flex;
-}
-
-h3{
-    margin: 10px;
-}
-
-.participants img{
-    height: 50px;
-} */
 
 .matches-info{
-    /* position: relative; */
     height: 200px;
     z-index: 0;
 }
@@ -104,10 +14,12 @@ h3{
     border-radius: 10px;
     color: #fff;
     z-index: 3;
+    /* position: relative; */
 }
 
 .matches-info .participants{
     border-radius: 10px;
+    text-align: center;
 }
 
 .information img{
@@ -115,10 +27,32 @@ h3{
     width: 150px;
 }
 
-.information .text-info{
+.information .info-text{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    font-size: 20px;
+    margin-left: 10%;
 }
+
+
+
+.participants .information .items{
+    width: 20%;
+    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-self: end;
+    width: 105px;
+    margin-left: 10%;
+}
+
+
+.information .items img{
+    width: 35px;
+}
+
+
 
 .matches-all-info{
     position:relative absolute;
@@ -126,53 +60,114 @@ h3{
     top: 50%;
     width: 90vw;
     transform: translate(-50%, -50%);
-    background-color: antiquewhite;
+    background-color: #141414;
     z-index: 30;
     display: grid;
-    grid-template: 100px 40vh/repeat(2, 1fr);
+    grid-template: 100px 40vh/repeat(2, 40vw);
     text-align: center;
+    justify-content: center;
+    column-gap:  5vw;
 }
 
 .matches-info .header{
     grid-area: 1/1/2/3;
 }
 
+.matches-all-info .close{
+    cursor: pointer;
+}
+
 .matches-all-info .team1{
     grid-area: 2/1/3/2;
     width: 100%;
+    color: #fff;
 }
 
-.matches-all-info .team1{
+.matches-all-info .team2{
     grid-area: 2/2/3/3;
     width: 100%;
+    color: #fff;
 }
+
 
 
 .matches-all-info .participants{
-    height: 15%;
+    height: 17.5%;
     display: flex;
     border: 1px solid #000;
     width: 100%;
-    /* position: relative; */
-    /* top: 0; */
-}
-
-.matches-all-info .participants1{
-    height: 15%;
-    display: flex;
-    border: 1px solid #000;
-    width: 100%;
-    /* position:absolute; */
-    top: 0;
+    position: relative;
 }
 
 
 
-
+.matches-all-info .participants .resultado{
+    color: aqua;
+    left: 200px;
+}
 
 
 
 .matches-all-info .participants img{
     width: 50px;
+    border-radius: 10px;
 
+}
+
+
+
+.matches-all-info .participants .summonerName{
+    font-size: 20px;
+    align-self: center;
+    position: absolute;
+    left: 55px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+.matches-all-info .participants .info-text{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+font-size: 15px;
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+}
+
+.matches-all-info .participants .items{
+    width: 90px;
+    display: flex;
+    flex-wrap: wrap;
+    align-self: flex-end;
+    position: absolute;
+    right: 0;
+}
+
+
+
+.matches-all-info .participants .items img{
+    width: 30px;
+
+    
+}
+
+
+
+
+
+.win{
+    position: absolute;
+    left: 250px;
+    top: -50px;
+}
+
+.win1{
+    
+    position: absolute;
+    top: -50px;
+    right: 250px;
 }

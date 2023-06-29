@@ -14,7 +14,7 @@ import { catchError } from "rxjs/operators";
 export class PlayerService {
   constructor(private http: HttpClient) { }
 
-  private apikey:string = "RGAPI-057b7e62-83d0-449b-95c7-ac66b4024919"
+  private apikey:string = "RGAPI-fd640f19-68f5-4c25-96d2-cbde969eb31a"
   //API to find player
   sendForm(playername: string) {
     const url = 'https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' + encodeURIComponent(playername) + '?api_key=' + this.apikey;

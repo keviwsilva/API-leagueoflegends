@@ -27,6 +27,7 @@ export class MatchesComponent implements OnChanges{
   championNames?: string[];
   picChamp: any;
   roleChamps?: any[];
+player: any;
 
   playerNamesearch(playername: string) {
     this.jogadorComponent.onPlayerNameClicked(playername)
@@ -70,6 +71,7 @@ export class MatchesComponent implements OnChanges{
             const cs = []
             const totalMinionsKilled = [];
             const idChamp = [];
+           
             console.log(result);
             for (let i = 0; i <= 9; i++) {
               const minionsKiled = result.info.participants[i].totalMinionsKilled;
@@ -126,19 +128,7 @@ export class MatchesComponent implements OnChanges{
         }
       }
       
-      getPlayerCardStyles(player: any) {
-        if (player.win) {
-          return { 
-            'background-color': 'green',
-            'float': 'left'
-          };
-        } else {
-          return { 
-            'background-color': 'red',
-            'float': 'right'
-          };
-        }
-      }
+    
       
 
       showPopup(matchIndex: number, playerIndex: number): void {
